@@ -227,6 +227,8 @@ GameObject:
   m_Component:
   - component: {fileID: 733206728}
   - component: {fileID: 733206729}
+  - component: {fileID: 733206731}
+  - component: {fileID: 733206730}
   m_Layer: 0
   m_Name: Ecs Startup
   m_TagString: Untagged
@@ -263,6 +265,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _businessNames: {fileID: 11400000, guid: b9b58cdd97ef4144ba487c465aacc6f3, type: 2}
   _businessBusinessConfigs: {fileID: 11400000, guid: 4d73120726d0ef0448f25f34bb8adebf, type: 2}
+--- !u!114 &733206730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733206727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c696daaaaf92479995a597176099b98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    newFpsLimit: 300
+    newVSyncCount: 0
+--- !u!114 &733206731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733206727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863c7f7460b2b49abb4fa9a7ff9cb180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convertMode: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

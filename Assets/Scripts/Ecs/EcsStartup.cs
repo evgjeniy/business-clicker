@@ -36,6 +36,7 @@ namespace Ecs
 		private void AddSystems()
 		{
 			_systems
+				.Add(new ChangeFpsLimitSystem())
 				.Add(new BusinessViewsSpawnSystem())
 				.Add(new BusinessViewsSetupSystem())
 				.Add(new DebugMessageSystem());
