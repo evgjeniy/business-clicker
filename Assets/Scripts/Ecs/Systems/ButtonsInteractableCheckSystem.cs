@@ -9,58 +9,46 @@ namespace Ecs.Systems
 {
     public class ButtonsInteractableCheckSystem : IEcsRunSystem
     {
-        private readonly BusinessConfigDb _config = null;
-        private readonly EcsFilter<BalanceComponent, BalanceChangedEvent> _balanceFilter = null;
-        
-        private readonly EcsFilter<ButtonComponent, RootTransformComponent, LevelUpButtonTag> _levelUpButtonsFilter = null;
-        private readonly EcsFilter<ButtonComponent, RootTransformComponent, FirstUpgradeButtonTag> _firstUpgradeButtonsFilter = null;
-        private readonly EcsFilter<ButtonComponent, RootTransformComponent, SecondUpgradeButtonTag> _secondUpgradeButtonsFilter = null;
+        private readonly BusinessConfigDb _configDb = null;
+        private readonly EcsFilter<BalanceComponent, BalanceChangedEvent> _changedBalanceFilter = null;
+        private readonly EcsFilter<ButtonComponent, RootTransformComponent> _buttonsFilter = null;
 
         public void Run()
         {
-            if (_balanceFilter.IsEmpty()) return;
+            if (_changedBalanceFilter.IsEmpty()) return;
 
-            ref var balanceEntity = ref _balanceFilter.GetEntity(0);
+            ref var balanceEntity = ref _changedBalanceFilter.GetEntity(0);
             var moneyAmount = balanceEntity.Get<BalanceComponent>().MoneyAmount;
             
-            CheckLevelUpButtons(moneyAmount);
-            CheckFirstUpgradeButtons(moneyAmount);
-            CheckSecondUpgradeButtons(moneyAmount);
+            foreach (var entityId in _buttonsFilter)
+            {
+                ref var entity = ref _buttonsFilter.GetEntity(entityId);
+                
+                var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
+                var businessConfig = _configDb.GetById(index);
+
+                SetInteractable(ref entity, businessConfig, moneyAmount);
+            }
             
             balanceEntity.Del<BalanceChangedEvent>();
         }
 
-        private void CheckLevelUpButtons(float moneyAmount)
+        private void SetInteractable(ref EcsEntity entity, BusinessConfig businessConfig, float moneyAmount)
         {
-            foreach (var entityId in _levelUpButtonsFilter)
+            if (entity.Has<LevelUpButtonTag>())
             {
-                var index = _levelUpButtonsFilter.Get2(entityId).rootTransform.GetSiblingIndex();
-                var businessConfig = _config.GetById(index);
                 var nextLevelPrice = (businessConfig.Level + 1) * businessConfig.BasePrice;
-
-                _levelUpButtonsFilter.Get1(entityId).uiButton.interactable = moneyAmount >= nextLevelPrice;
+                entity.Get<ButtonComponent>().uiButton.interactable = moneyAmount >= nextLevelPrice;
             }
-        }
-
-        private void CheckFirstUpgradeButtons(float moneyAmount)
-        {
-            foreach (var entityId in _firstUpgradeButtonsFilter)
+            else if (entity.Has<FirstUpgradeButtonTag>())
             {
-                var index = _firstUpgradeButtonsFilter.Get2(entityId).rootTransform.GetSiblingIndex();
-                var firstUpgradePrice = _config.GetById(index).FirstUpgrade.Price;
-
-                _firstUpgradeButtonsFilter.Get1(entityId).uiButton.interactable = moneyAmount >= firstUpgradePrice;
+                var firstUpgradePrice = businessConfig.FirstUpgrade.Price;
+                entity.Get<ButtonComponent>().uiButton.interactable = moneyAmount >= firstUpgradePrice;
             }
-        }
-
-        private void CheckSecondUpgradeButtons(float moneyAmount)
-        {
-            foreach (var entityId in _secondUpgradeButtonsFilter)
+            else if (entity.Has<SecondUpgradeButtonTag>())
             {
-                var index = _secondUpgradeButtonsFilter.Get2(entityId).rootTransform.GetSiblingIndex();
-                var secondUpgradePrice = _config.GetById(index).SecondUpgrade.Price;
-
-                _secondUpgradeButtonsFilter.Get1(entityId).uiButton.interactable = moneyAmount >= secondUpgradePrice;
+                var secondUpgradePrice = businessConfig.SecondUpgrade.Price;
+                entity.Get<ButtonComponent>().uiButton.interactable = moneyAmount >= secondUpgradePrice;
             }
         }
     }

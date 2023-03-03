@@ -137,86 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
---- !u!1 &115699745104228482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2114882956892958181}
-  - component: {fileID: 4792229895289900289}
-  - component: {fileID: 6871808393364312472}
-  m_Layer: 5
-  m_Name: Level Up Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2114882956892958181
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115699745104228482}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2529926604461926619}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4792229895289900289
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115699745104228482}
-  m_CullTransparentMesh: 1
---- !u!114 &6871808393364312472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115699745104228482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 4bc0ca2c0520fd14fae919eff8a5f55b, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: LEVEL UP
 --- !u!1 &1211710678445548766
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +290,7 @@ GameObject:
   - component: {fileID: 6976228495946860586}
   - component: {fileID: 6329341173758374699}
   - component: {fileID: 3244316675121091398}
+  - component: {fileID: 4288978676323768373}
   m_Layer: 5
   m_Name: Business Name
   m_TagString: Untagged
@@ -507,6 +428,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &4288978676323768373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261608874287785432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2a3c09114468386373d5316449a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2270629231586930004
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +455,7 @@ GameObject:
   - component: {fileID: 3198150582834905162}
   - component: {fileID: 8575586265935246664}
   - component: {fileID: 6087563874230068857}
+  - component: {fileID: 9115825791154874841}
   m_Layer: 5
   m_Name: Upgrade Button 2 Name
   m_TagString: Untagged
@@ -644,6 +578,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &9115825791154874841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270629231586930004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2a3c09114468386373d5316449a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2541644146561205887
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +764,7 @@ GameObject:
   - component: {fileID: 4997695580440666045}
   - component: {fileID: 3322213109453167908}
   m_Layer: 5
-  m_Name: Level Up Price Text
+  m_Name: Level Up Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,7 +783,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2529926604461926619}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -885,7 +831,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Price: 0$'
+  m_Text: 'LEVEL UP
+
+    Price: 0$'
 --- !u!114 &1432244503489335284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,7 +1374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 7983293867313694545}
 --- !u!114 &5667057752799731240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,7 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 9061068268114499662}
 --- !u!114 &8916813713602227689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,7 +1770,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2114882956892958181}
   - {fileID: 5113627216677014634}
   m_Father: {fileID: 2826477997790231970}
   m_RootOrder: 2
@@ -1978,7 +1925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 653417890202956292}
 --- !u!114 &9175140064441511199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2008,6 +1955,7 @@ GameObject:
   - component: {fileID: 3891103039214709794}
   - component: {fileID: 8576687935308237232}
   - component: {fileID: 4579133038818918612}
+  - component: {fileID: 3693959439640806988}
   m_Layer: 5
   m_Name: Upgrade Button 1 Name
   m_TagString: Untagged
@@ -2130,6 +2078,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &3693959439640806988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495398792268383363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2a3c09114468386373d5316449a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8552416932172181534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2617,6 +2577,8 @@ GameObject:
   - component: {fileID: 9176947893438378684}
   - component: {fileID: 2666591654543383230}
   - component: {fileID: 2567844231364846412}
+  - component: {fileID: 6641653563086599049}
+  - component: {fileID: 9015333951207005953}
   m_Layer: 5
   m_Name: BusinessView
   m_TagString: Untagged
@@ -2726,3 +2688,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &6641653563086599049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176947893438378682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863c7f7460b2b49abb4fa9a7ff9cb180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convertMode: 0
+--- !u!114 &9015333951207005953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176947893438378682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

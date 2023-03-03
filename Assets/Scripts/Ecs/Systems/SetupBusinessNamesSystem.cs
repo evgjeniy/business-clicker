@@ -1,4 +1,5 @@
 ﻿using Ecs.Components;
+using Ecs.Components.Events;
 using Ecs.Components.Tags.Texts;
 using Ecs.Components.UiComponents;
 using Leopotam.Ecs;
@@ -8,8 +9,8 @@ namespace Ecs.Systems
 {
     public class SetupBusinessNamesSystem : IEcsRunSystem
     {
-        private readonly BusinessNamesDb _namesDb;
-        private readonly EcsFilter<TextComponent, RootTransformComponent> _textFilter = null;
+        private readonly BusinessNamesDb _namesDb = null;
+        private readonly EcsFilter<TextComponent, RootTransformComponent, InitializeEvent> _textFilter = null;
 
         public void Run()
         {
@@ -26,14 +27,15 @@ namespace Ecs.Systems
                 else if (entity.Has<SecondUpgradeNameTag>()) uiText.text = businessName.SecondUpgradeName;
                 else continue;
                 
-                RemoveEntity(_textFilter.GetEntity(entityId));
+                RemoveEntity(ref _textFilter.GetEntity(entityId));
             }
         }
 
-        private void RemoveEntity(EcsEntity entity)
+        private void RemoveEntity(ref EcsEntity entity)
         {
             entity.Del<TextComponent>();
             entity.Del<RootTransformComponent>();
+            entity.Del<InitializeEvent>();
         }
     }
 }

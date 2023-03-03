@@ -14,13 +14,13 @@ namespace Ecs.Systems
     {
         private readonly EcsWorld _world = null;
         private readonly BusinessConfigDb _configDb = null;
-        private readonly EcsFilter<RevenueProcessComponent, RootTransformComponent> _revenueProcessFilter = null;
+        private readonly EcsFilter<RevenueProcessComponent, RootTransformComponent> _revenueProcessesFilter = null;
 
         public void Run()
         {
-            foreach (var entityId in _revenueProcessFilter)
+            foreach (var entityId in _revenueProcessesFilter)
             {
-                ref var entity = ref _revenueProcessFilter.GetEntity(entityId);
+                ref var entity = ref _revenueProcessesFilter.GetEntity(entityId);
                 ref var uiSlider = ref entity.Get<RevenueProcessComponent>().uiSlider;
                 
                 var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
@@ -39,14 +39,7 @@ namespace Ecs.Systems
             if (uiSlider.value < uiSlider.maxValue) return;
 
             uiSlider.value = uiSlider.minValue;
-            
-            _world.SendMessage(new DebugMessageRequest
-            {
-                Type = MessageType.Log,
-                Message = $"The balance was replenished by {currentRevenue}$"
-            });
-            
-            // TODO - _world.SendMessage(new ReplenishBalanceRequest { value = currentRevenue });
+            _world.SendMessage(new ReplenishBalanceRequest { value = currentRevenue });
         }
 
         private void Initialize(ref EcsEntity entity, Slider uiSlider, BusinessConfig businessConfig)

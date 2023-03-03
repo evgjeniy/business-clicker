@@ -10,7 +10,7 @@ namespace ScriptableObjects
 
         public BusinessName GetById(int id) => id < 0 || id >= BusinessNames.Count ? null : BusinessNames[id];
 
-        public int Count => BusinessNames.Count;
+        public int Size => BusinessNames.Count;
     }
 
     [System.Serializable]

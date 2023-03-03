@@ -10,7 +10,7 @@ namespace ScriptableObjects
 
         public BusinessConfig GetById(int id) => id < 0 || id >= BusinessConfigs.Count ? null : BusinessConfigs[id];
 
-        public int Count => BusinessConfigs.Count;
+        public int Size => BusinessConfigs.Count;
     }
     
     
@@ -18,11 +18,15 @@ namespace ScriptableObjects
     public class BusinessConfig
     {
         [field: SerializeField] public int Level { get; set; }
+        
+        [field: Header("Business Balance Settings")]
         [field: SerializeField, Min(0.0f)] public float RevenueDelay { get; private set; }
         [field: SerializeField, Min(0.0f)] public float BasePrice { get; private set; }
         [field: SerializeField, Min(0.0f)] public float BaseRevenue { get; private set; }
         [field: SerializeField] public UpgradeConfig FirstUpgrade { get; private set; }
         [field: SerializeField] public UpgradeConfig SecondUpgrade { get; private set; }
+
+        public float NextLevelPrice => (Level + 1) * BasePrice;
 
         public float GetCurrentRevenue()
         {
@@ -38,6 +42,8 @@ namespace ScriptableObjects
     public class UpgradeConfig
     {
         [field: SerializeField] public bool IsPurchased { get; set; }
+        
+        [field: Header("Upgrade Balance Settings")]
         [field: SerializeField, Min(0.0f)] public float Price { get; private set; }
         [field: SerializeField, Min(0.0f)] public float RevenueMultiplier { get; private set; }
     }

@@ -10,8 +10,8 @@ namespace Ecs.Systems
     public class BusinessViewsSpawnSystem : IEcsInitSystem
     {
         private readonly EcsWorld _world = null;
-        private readonly BusinessNamesDb _businessNamesDb = null;
-        private readonly BusinessConfigDb _businessConfigDb = null;
+        private readonly BusinessNamesDb _namesDb = null;
+        private readonly BusinessConfigDb _configDb = null;
         private readonly EcsFilter<TransformComponent, PrefabComponent> _spawnerFilter = null;
 
         public void Init()
@@ -22,9 +22,9 @@ namespace Ecs.Systems
                 ref var parentTransform = ref entity.Get<TransformComponent>().Transform;
                 ref var prefab = ref entity.Get<PrefabComponent>().prefab;
 
-                if (_businessNamesDb.Count == _businessConfigDb.Count)
+                if (_namesDb.Size == _configDb.Size)
                 {
-                    for (var i = 0; i < _businessNamesDb.Count; i++)
+                    for (var i = 0; i < _namesDb.Size; i++)
                         Object.Instantiate(prefab, parentTransform).transform.SetSiblingIndex(i);
                 }
                 else
@@ -34,8 +34,6 @@ namespace Ecs.Systems
 
                 entity.Del<TransformComponent>();
                 entity.Del<PrefabComponent>();
-
-                Debug.Log(entity.IsAlive() + " || " + entity.IsNull() + " || " + entity.IsWorldAlive());
             }
         }
 
@@ -43,9 +41,9 @@ namespace Ecs.Systems
         {
             _world.SendMessage(new DebugMessageRequest
             {
-                Type = MessageType.Error,
-                Message = "BusinessViewsEcsSpawner.Init() method can't work correctly, " +
-                          "cause the sizes of the 2 databases are not equals."
+                type = MessageType.Error,
+                message = "BusinessViewsEcsSpawner.Init() the method cannot work correctly, " +
+                          "because the sizes of the business databases are not equal."
             });
         }
     }

@@ -7,23 +7,23 @@ namespace Ecs.Systems
 {
     public class DebugMessageSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<DebugMessageRequest> _messageFilter = null;
+        private readonly EcsFilter<DebugMessageRequest> _messagesFilter = null;
         
         public void Run()
         {
-            foreach (var entityId in _messageFilter)
+            foreach (var entityId in _messagesFilter)
             {
-                ref var messageEvent = ref _messageFilter.Get1(entityId);
+                ref var messageEvent = ref _messagesFilter.Get1(entityId);
 
-                switch (messageEvent.Type)
+                switch (messageEvent.type)
                 {
-                    case MessageType.Log:     Debug.Log(messageEvent.Message);        break;
-                    case MessageType.Warning: Debug.LogWarning(messageEvent.Message); break;
-                    case MessageType.Error:   Debug.LogError(messageEvent.Message);   break;
+                    case MessageType.Log:     Debug.Log(messageEvent.message);        break;
+                    case MessageType.Warning: Debug.LogWarning(messageEvent.message); break;
+                    case MessageType.Error:   Debug.LogError(messageEvent.message);   break;
                     default: throw new ArgumentOutOfRangeException();
                 }
                 
-                _messageFilter.GetEntity(entityId).Del<DebugMessageRequest>();
+                _messagesFilter.GetEntity(entityId).Del<DebugMessageRequest>();
             }
         }
     }

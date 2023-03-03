@@ -9,7 +9,7 @@ namespace Ecs.Extensions
             world.NewEntity().Get<T>() = message;
         }
         
-        public static void SendMessage<T>(this EcsEntity entity, in T message = default) where T : struct
+        public static void SendMessage<T>(this ref EcsEntity entity, in T message = default) where T : struct
         {
             entity.Get<T>() = message;
         }

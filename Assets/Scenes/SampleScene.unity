@@ -1247,6 +1247,10 @@ GameObject:
   - component: {fileID: 8135491554053052259}
   - component: {fileID: 8135491554053052284}
   - component: {fileID: 8135491554053052285}
+  - component: {fileID: 8135491554053052289}
+  - component: {fileID: 8135491554053052288}
+  - component: {fileID: 8135491554053052291}
+  - component: {fileID: 8135491554053052290}
   m_Layer: 5
   m_Name: Balance Text
   m_TagString: Untagged
@@ -1254,3 +1258,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8135491554053052288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135491554053052287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8a2a0307dd4de28d649979955d2169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8135491554053052289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135491554053052287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863c7f7460b2b49abb4fa9a7ff9cb180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convertMode: 0
+--- !u!114 &8135491554053052290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135491554053052287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1862910734924b35a9b0a7006d4dd4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8135491554053052291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135491554053052287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02357e8eafe84a68b4b10754ff463f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    uiText: {fileID: 8135491554053052259}

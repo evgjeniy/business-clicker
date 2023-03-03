@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BusinessNames>k__BackingField:
   - <Name>k__BackingField: Business 0
+    <FirstUpgradeName>k__BackingField: First Upgrade 0
+    <SecondUpgradeName>k__BackingField: Second Upgrade 0
+  - <Name>k__BackingField: Business 1
     <FirstUpgradeName>k__BackingField: First Upgrade 1
     <SecondUpgradeName>k__BackingField: Second Upgrade 1
-  - <Name>k__BackingField: Business 1
+  - <Name>k__BackingField: Business 2
     <FirstUpgradeName>k__BackingField: First Upgrade 2
     <SecondUpgradeName>k__BackingField: Second Upgrade 2
-  - <Name>k__BackingField: Business 2
+  - <Name>k__BackingField: Business 3
     <FirstUpgradeName>k__BackingField: First Upgrade 3
     <SecondUpgradeName>k__BackingField: Second Upgrade 3
-  - <Name>k__BackingField: Business 3
+  - <Name>k__BackingField: Business 4
     <FirstUpgradeName>k__BackingField: First Upgrade 4
     <SecondUpgradeName>k__BackingField: Second Upgrade 4
-  - <Name>k__BackingField: Business 4
-    <FirstUpgradeName>k__BackingField: First Upgrade 5
-    <SecondUpgradeName>k__BackingField: Second Upgrade 5
