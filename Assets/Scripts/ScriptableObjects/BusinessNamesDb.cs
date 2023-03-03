@@ -6,8 +6,7 @@ namespace ScriptableObjects
     [CreateAssetMenu(menuName = "Business Names DB", fileName = "BusinessNames")]
     public class BusinessNamesDb : ScriptableObject
     {
-        [field: SerializeField] 
-        public List<BusinessName> BusinessNames { get; private set; }
+        [field: SerializeField] public List<BusinessName> BusinessNames { get; private set; }
 
         public BusinessName GetById(int id) => id < 0 || id >= BusinessNames.Count ? null : BusinessNames[id];
 

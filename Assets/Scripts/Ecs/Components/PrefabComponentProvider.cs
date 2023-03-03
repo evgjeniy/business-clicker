@@ -3,7 +3,7 @@ using Voody.UniLeo;
 
 namespace Ecs.Components
 {
-    public class PrefabProvider : MonoProvider<PrefabComponent> {}
+    public class PrefabComponentProvider : MonoProvider<PrefabComponent> {}
     
     [System.Serializable]
     public struct PrefabComponent

@@ -18,33 +18,25 @@ namespace Ecs.Systems
         {
             foreach (var entityId in _spawnerFilter)
             {
-                ref var parentTransform = ref _spawnerFilter.Get1(entityId).transform;
-                ref var prefab = ref _spawnerFilter.Get2(entityId).prefab;
+                ref var entity = ref _spawnerFilter.GetEntity(entityId);
+                ref var parentTransform = ref entity.Get<TransformComponent>().Transform;
+                ref var prefab = ref entity.Get<PrefabComponent>().prefab;
 
                 if (_businessNamesDb.Count == _businessConfigDb.Count)
                 {
                     for (var i = 0; i < _businessNamesDb.Count; i++)
-                        Instantiate(prefab, parentTransform, i);
+                        Object.Instantiate(prefab, parentTransform).transform.SetSiblingIndex(i);
                 }
                 else
                 {
                     SendDatabasesCountNotEqualsError();
                 }
 
-                RemoveEntity(ref _spawnerFilter.GetEntity(entityId));
-            }
-        }
+                entity.Del<TransformComponent>();
+                entity.Del<PrefabComponent>();
 
-        private void Instantiate(GameObject prefab, Transform parent, int siblingIndex)
-        {
-            var newInstance = Object.Instantiate(prefab, parent);
-            
-            _world.SendMessage(new BusinessViewSetupRequest
-            {
-                SiblingIndex = siblingIndex,
-                BusinessName = _businessNamesDb.GetById(siblingIndex),
-                BusinessConfig = _businessConfigDb.GetById(siblingIndex)
-            });
+                Debug.Log(entity.IsAlive() + " || " + entity.IsNull() + " || " + entity.IsWorldAlive());
+            }
         }
 
         private void SendDatabasesCountNotEqualsError()
@@ -55,12 +47,6 @@ namespace Ecs.Systems
                 Message = "BusinessViewsEcsSpawner.Init() method can't work correctly, " +
                           "cause the sizes of the 2 databases are not equals."
             });
-        }
-
-        private void RemoveEntity(ref EcsEntity entity)
-        {
-            entity.Del<TransformComponent>();
-            entity.Del<PrefabComponent>();
         }
     }
 }

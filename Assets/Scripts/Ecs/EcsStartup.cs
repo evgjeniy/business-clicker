@@ -19,29 +19,32 @@ namespace Ecs
 		{
 			_world = new EcsWorld();
 			_systems = new EcsSystems(_world).ConvertScene();
-		
-			AddInjections();
+
 			AddSystems();
-		
+			AddInjections();
+
 			_systems.Init();
 		}
-	
+
+		private void AddSystems()
+		{
+			_systems
+				.Add(new ChangeFpsLimitSystem())
+				.Add(new BusinessViewsSpawnSystem())
+				.Add(new SetupBusinessNamesSystem())
+				.Add(new RevenueDelayProcessSystem())
+				//.Add(new ButtonsInteractableCheckSystem())
+				.Add(new DebugMessageSystem())
+				;
+		}
+
 		private void AddInjections()
 		{
 			_systems
 				.Inject(_businessNames)
 				.Inject(_businessBusinessConfigs);
 		}
-	
-		private void AddSystems()
-		{
-			_systems
-				.Add(new ChangeFpsLimitSystem())
-				.Add(new BusinessViewsSpawnSystem())
-				.Add(new BusinessViewsSetupSystem())
-				.Add(new DebugMessageSystem());
-		}
-	
+
 		private void Update() => _systems.Run();
 
 		private void OnDestroy()

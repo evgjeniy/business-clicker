@@ -12,7 +12,8 @@ namespace Ecs.Systems
         {
             foreach (var entityId in _fpsLimitFilter)
             {
-                ref var fpsLimitRequest = ref _fpsLimitFilter.Get1(entityId);
+                ref var entity = ref _fpsLimitFilter.GetEntity(entityId);
+                ref var fpsLimitRequest = ref entity.Get<ChangeFpsLimitRequest>();
 
                 Application.targetFrameRate = fpsLimitRequest.newFpsLimit;
                 QualitySettings.vSyncCount = fpsLimitRequest.newVSyncCount;
