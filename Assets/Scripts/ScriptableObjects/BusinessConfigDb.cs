@@ -23,6 +23,8 @@ namespace ScriptableObjects
         [field: SerializeField, Min(0.0f)] public float RevenueDelay { get; private set; }
         [field: SerializeField, Min(0.0f)] public float BasePrice { get; private set; }
         [field: SerializeField, Min(0.0f)] public float BaseRevenue { get; private set; }
+        
+        [field: Header("Upgrades")]
         [field: SerializeField] public UpgradeConfig FirstUpgrade { get; private set; }
         [field: SerializeField] public UpgradeConfig SecondUpgrade { get; private set; }
 

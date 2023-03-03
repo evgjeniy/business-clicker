@@ -14,14 +14,14 @@ namespace Ecs.Systems
     {
         private readonly EcsWorld _world = null;
         private readonly BusinessConfigDb _configDb = null;
-        private readonly EcsFilter<RevenueProcessComponent, RootTransformComponent> _revenueProcessesFilter = null;
+        private readonly EcsFilter<SliderComponent, RootTransformComponent> _revenueProcessesFilter = null;
 
         public void Run()
         {
             foreach (var entityId in _revenueProcessesFilter)
             {
                 ref var entity = ref _revenueProcessesFilter.GetEntity(entityId);
-                ref var uiSlider = ref entity.Get<RevenueProcessComponent>().uiSlider;
+                ref var uiSlider = ref entity.Get<SliderComponent>().uiSlider;
                 
                 var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
                 var businessConfig = _configDb.GetById(index);

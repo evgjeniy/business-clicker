@@ -17,8 +17,7 @@ namespace Ecs.Systems
         {
             if (_changedBalanceFilter.IsEmpty()) return;
 
-            ref var balanceEntity = ref _changedBalanceFilter.GetEntity(0);
-            var moneyAmount = balanceEntity.Get<BalanceComponent>().MoneyAmount;
+            var moneyAmount = _changedBalanceFilter.GetEntity(0).Get<BalanceComponent>().MoneyAmount;
             
             foreach (var entityId in _buttonsFilter)
             {
@@ -29,8 +28,6 @@ namespace Ecs.Systems
 
                 SetInteractable(ref entity, businessConfig, moneyAmount);
             }
-            
-            balanceEntity.Del<BalanceChangedEvent>();
         }
 
         private void SetInteractable(ref EcsEntity entity, BusinessConfig businessConfig, float moneyAmount)
@@ -43,12 +40,14 @@ namespace Ecs.Systems
             else if (entity.Has<FirstUpgradeButtonTag>())
             {
                 var firstUpgradePrice = businessConfig.FirstUpgrade.Price;
-                entity.Get<ButtonComponent>().uiButton.interactable = moneyAmount >= firstUpgradePrice;
+                var isPurchased = businessConfig.FirstUpgrade.IsPurchased;
+                entity.Get<ButtonComponent>().uiButton.interactable = !isPurchased && moneyAmount >= firstUpgradePrice;
             }
             else if (entity.Has<SecondUpgradeButtonTag>())
             {
                 var secondUpgradePrice = businessConfig.SecondUpgrade.Price;
-                entity.Get<ButtonComponent>().uiButton.interactable = moneyAmount >= secondUpgradePrice;
+                var isPurchased = businessConfig.SecondUpgrade.IsPurchased;
+                entity.Get<ButtonComponent>().uiButton.interactable = !isPurchased && moneyAmount >= secondUpgradePrice;
             }
         }
     }

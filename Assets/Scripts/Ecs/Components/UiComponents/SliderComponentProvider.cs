@@ -3,10 +3,10 @@ using Voody.UniLeo;
 
 namespace Ecs.Components.UiComponents
 {
-    public class RevenueProcessComponentProvider : MonoProvider<RevenueProcessComponent> {}
+    public class SliderComponentProvider : MonoProvider<SliderComponent> {}
 
     [System.Serializable]
-    public struct RevenueProcessComponent
+    public struct SliderComponent
     {
         public Slider uiSlider;
     }

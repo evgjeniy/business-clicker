@@ -10,12 +10,12 @@ namespace Ecs.Systems
     public class UpdateViewSystem : IEcsRunSystem
     {
         private readonly BusinessConfigDb _configDb = null;
-        private readonly EcsFilter<UpdateViewEvent> _updateViewEventsFilter = null;
+        private readonly EcsFilter<BalanceComponent, BalanceChangedEvent> _changedBalanceFilter = null;
         private readonly EcsFilter<TextComponent, RootTransformComponent> _textsForUpdateFilter = null;
 
         public void Run()
         {
-            if (!IsUpdateEventExist()) return;
+            if (_changedBalanceFilter.IsEmpty()) return;
 
             foreach (var entityId in _textsForUpdateFilter)
             {
@@ -24,6 +24,8 @@ namespace Ecs.Systems
 
                 UpdateView(ref entity, _configDb.GetById(index));
             }
+            
+            _changedBalanceFilter.GetEntity(0).Del<BalanceChangedEvent>();
         }
 
         private void UpdateView(ref EcsEntity entity, BusinessConfig config)
@@ -31,31 +33,19 @@ namespace Ecs.Systems
             ref var uiText = ref entity.Get<TextComponent>().uiText;
 
             if (entity.Has<FirstUpgradeRevenueTag>())
-                uiText.text = $"Revenue: +{config.FirstUpgrade.RevenueMultiplier * 100}$";
+                uiText.text = $"Revenue: +{config.FirstUpgrade.RevenueMultiplier * 100}%";
             else if (entity.Has<FirstUpgradePriceTag>())
-                uiText.text = $"Price: {config.FirstUpgrade.Price}$";
+                uiText.text = config.FirstUpgrade.IsPurchased ? "Purchased" : $"Price: {config.FirstUpgrade.Price}$";
             else if (entity.Has<SecondUpgradeRevenueTag>())
-                uiText.text = $"Revenue: +{config.SecondUpgrade.RevenueMultiplier * 100}$";
+                uiText.text = $"Revenue: +{config.SecondUpgrade.RevenueMultiplier * 100}%";
             else if (entity.Has<SecondUpgradePriceTag>())
-                uiText.text = $"Price: {config.SecondUpgrade.Price}$";
+                uiText.text = config.SecondUpgrade.IsPurchased ? "Purchased" : $"Price: {config.SecondUpgrade.Price}$";
             else if (entity.Has<LevelTextTag>())
                 uiText.text = $"LVL: {config.Level}";
             else if (entity.Has<RevenueTextTag>())
                 uiText.text = $"Revenue: {config.GetCurrentRevenue()}$";
             else if (entity.Has<LevelUpTextTag>())
                 uiText.text = (config.Level == 0 ? "BUY" : "LEVEL UP") + $"\nPrice: {config.NextLevelPrice}$";
-        }
-
-        private bool IsUpdateEventExist()
-        {
-            var isUpdateEventExist = false;
-            foreach (var entityId in _updateViewEventsFilter)
-            {
-                _updateViewEventsFilter.GetEntity(entityId).Del<UpdateViewEvent>();
-                isUpdateEventExist = true;
-            }
-
-            return isUpdateEventExist;
         }
     }
 }

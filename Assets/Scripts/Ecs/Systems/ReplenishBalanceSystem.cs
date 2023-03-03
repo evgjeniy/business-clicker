@@ -27,10 +27,10 @@ namespace Ecs.Systems
                 isChanged = true;
             }
 
-            if (isChanged) UpdateText(ref balanceEntity);
+            if (isChanged) UpdateBalanceText(ref balanceEntity);
         }
         
-        private void UpdateText(ref EcsEntity balanceEntity)
+        private void UpdateBalanceText(ref EcsEntity balanceEntity)
         {
             balanceEntity.Get<TextComponent>().uiText.text = 
                 $"Balance: {balanceEntity.Get<BalanceComponent>().MoneyAmount}$";

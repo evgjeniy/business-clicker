@@ -31,13 +31,21 @@ namespace Ecs
 			_systems
 				.Add(new ChangeFpsLimitSystem())
 				.Add(new BusinessViewsSpawnSystem())
-				.Add(new SetupBusinessNamesSystem())
-				.Add(new UpdateViewSystem())
+				
+				.Add(new InitializeBusinessNamesSystem())
+				.Add(new InitializeOnClickButtonEventsSystem())
+				
 				.Add(new RevenueDelayProcessSystem())
 				.Add(new ReplenishBalanceSystem())
+				
+				.Add(new LevelUpHandleSystem())
+				.Add(new FirstUpgradeHandleSystem())
+				.Add(new SecondUpgradeHandleSystem())
+
 				.Add(new ButtonsInteractableCheckSystem())
-				.Add(new DebugMessageSystem())
-				;
+				.Add(new UpdateViewSystem())
+
+				.Add(new DebugMessageSystem());
 		}
 
 		private void AddInjections()

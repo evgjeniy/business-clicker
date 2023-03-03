@@ -7,7 +7,7 @@ using ScriptableObjects;
 
 namespace Ecs.Systems
 {
-    public class SetupBusinessNamesSystem : IEcsRunSystem
+    public class InitializeBusinessNamesSystem : IEcsRunSystem
     {
         private readonly BusinessNamesDb _namesDb = null;
         private readonly EcsFilter<TextComponent, RootTransformComponent, InitializeEvent> _textFilter = null;
@@ -27,15 +27,8 @@ namespace Ecs.Systems
                 else if (entity.Has<SecondUpgradeNameTag>()) uiText.text = businessName.SecondUpgradeName;
                 else continue;
                 
-                RemoveEntity(ref _textFilter.GetEntity(entityId));
+                entity.Del<InitializeEvent>();
             }
-        }
-
-        private void RemoveEntity(ref EcsEntity entity)
-        {
-            entity.Del<TextComponent>();
-            entity.Del<RootTransformComponent>();
-            entity.Del<InitializeEvent>();
         }
     }
 }
