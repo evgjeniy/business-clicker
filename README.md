@@ -1,6 +1,11 @@
 # Advant. Тестовое задание на позицию Unity Developer.
 
-### Платформа Android. Unity 2021+
+## Превью
+![Preview_1](https://user-images.githubusercontent.com/90873710/222871804-b00c7720-5db4-40cd-b88f-fb0bf6b4ec35.gif)
+![Preview_2](https://user-images.githubusercontent.com/90873710/222871820-1da89a72-f07f-471f-ac12-ae6f83440fb4.gif)
+
+## Условия тестового задания
+### Платформа Android. Unity 2021.3.19.f1
 ![image](https://user-images.githubusercontent.com/90873710/222121400-ce617d12-ae13-46b6-b7b5-7de19ef1bc69.png)
 
 ### Задача
