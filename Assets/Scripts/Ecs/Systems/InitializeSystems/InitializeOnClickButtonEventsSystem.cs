@@ -1,12 +1,11 @@
 ﻿using Ecs.Components;
 using Ecs.Components.Events;
-using Ecs.Components.Requests;
 using Ecs.Components.Tags.Buttons;
 using Ecs.Components.UiComponents;
 using Ecs.Extensions;
 using Leopotam.Ecs;
 
-namespace Ecs.Systems
+namespace Ecs.Systems.InitializeSystems
 {
     public class InitializeOnClickButtonEventsSystem : IEcsRunSystem
     {
@@ -23,24 +22,18 @@ namespace Ecs.Systems
                 var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex(); 
 
                 if (entity.Has<LevelUpButtonTag>())
-                    button.onClick.AddListener(() => SendButtonClickEvent(index));
+                    button.onClick.AddListener(() => SendButtonClickEvent<LevelUpButtonTag>(index));
                 else if (entity.Has<FirstUpgradeButtonTag>())
-                    button.onClick.AddListener(() => SendOnFirstUpgradeButtonClickEvent(index));
+                    button.onClick.AddListener(() => SendButtonClickEvent<FirstUpgradeButtonTag>(index));
                 else if (entity.Has<SecondUpgradeButtonTag>())
-                    button.onClick.AddListener(() => SendOnSecondUpgradeButtonClickEvent(index));
+                    button.onClick.AddListener(() => SendButtonClickEvent<SecondUpgradeButtonTag>(index));
                 else continue;
 
                 entity.Del<InitializeEvent>();
             }
         }
 
-        private void SendButtonClickEvent(int index) =>
-            _world.SendMessage(new OnLevelUpButtonClickRequest { businessIndex = index });
-        
-        private void SendOnFirstUpgradeButtonClickEvent(int index) => 
-            _world.SendMessage(new OnFirstUpgradeButtonClickEvent { businessIndex = index });
-        
-        private void SendOnSecondUpgradeButtonClickEvent(int index) => 
-            _world.SendMessage(new OnSecondUpgradeButtonClickEvent { businessIndex = index });
+        private void SendButtonClickEvent<T>(int index) where T : struct => 
+            _world.AddComponentByTag<T, OnButtonClickEvent>(index);
     }
 }

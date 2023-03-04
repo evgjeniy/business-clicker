@@ -23,14 +23,20 @@ namespace Ecs.Systems
                 ref var entity = ref _revenueProcessesFilter.GetEntity(entityId);
                 ref var uiSlider = ref entity.Get<SliderComponent>().uiSlider;
                 
-                var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
-                var businessConfig = _configDb.GetById(index);
+                var businessIndex = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
+                var businessConfig = _configDb.GetById(businessIndex);
                 
                 if (entity.Has<InitializeEvent>()) Initialize(ref entity, uiSlider, businessConfig);
                 if (businessConfig.Level == 0) continue;
 
                 IncreaseDeltaTime(uiSlider, businessConfig.GetCurrentRevenue());
             }
+        }
+
+        private void Initialize(ref EcsEntity entity, Slider uiSlider, BusinessConfig businessConfig)
+        {
+            uiSlider.maxValue = businessConfig.RevenueDelay;
+            entity.Del<InitializeEvent>();
         }
 
         private void IncreaseDeltaTime(Slider uiSlider, float currentRevenue)
@@ -40,12 +46,6 @@ namespace Ecs.Systems
 
             uiSlider.value = uiSlider.minValue;
             _world.SendMessage(new ReplenishBalanceRequest { value = currentRevenue });
-        }
-
-        private void Initialize(ref EcsEntity entity, Slider uiSlider, BusinessConfig businessConfig)
-        {
-            uiSlider.maxValue = businessConfig.RevenueDelay;
-            entity.Del<InitializeEvent>();
         }
     }
 }

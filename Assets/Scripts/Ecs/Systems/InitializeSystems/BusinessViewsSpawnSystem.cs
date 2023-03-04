@@ -5,7 +5,7 @@ using Leopotam.Ecs;
 using ScriptableObjects;
 using UnityEngine;
 
-namespace Ecs.Systems
+namespace Ecs.Systems.InitializeSystems
 {
     public class BusinessViewsSpawnSystem : IEcsInitSystem
     {

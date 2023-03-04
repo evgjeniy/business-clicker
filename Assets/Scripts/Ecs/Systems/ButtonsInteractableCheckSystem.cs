@@ -23,8 +23,8 @@ namespace Ecs.Systems
             {
                 ref var entity = ref _buttonsFilter.GetEntity(entityId);
                 
-                var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
-                var businessConfig = _configDb.GetById(index);
+                var businessIndex = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
+                var businessConfig = _configDb.GetById(businessIndex);
 
                 SetInteractable(ref entity, businessConfig, moneyAmount);
             }

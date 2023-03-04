@@ -5,7 +5,7 @@ using Ecs.Components.UiComponents;
 using Leopotam.Ecs;
 using ScriptableObjects;
 
-namespace Ecs.Systems
+namespace Ecs.Systems.InitializeSystems
 {
     public class InitializeBusinessNamesSystem : IEcsRunSystem
     {

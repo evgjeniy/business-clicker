@@ -2,7 +2,7 @@
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Ecs.Systems
+namespace Ecs.Systems.InitializeSystems
 {
     public class ChangeFpsLimitSystem : IEcsInitSystem
     {

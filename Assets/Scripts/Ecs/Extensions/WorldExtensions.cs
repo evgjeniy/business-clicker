@@ -1,4 +1,5 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Ecs.Extensions
 {
@@ -12,6 +13,40 @@ namespace Ecs.Extensions
         public static void SendMessage<T>(this ref EcsEntity entity, in T message = default) where T : struct
         {
             entity.Get<T>() = message;
+        }
+
+        public static ref EcsEntity GetEntity<T>(this EcsWorld world, in int index = 0) where T : struct
+        {
+            var ecsFilter = world.GetFilter(typeof(EcsFilter<T>));
+
+            if (index < 0 || index >= ecsFilter.GetEntitiesCount())
+                Debug.LogWarning($"There's no entity by index {index} with tag {typeof(T).Name}");
+
+            return ref ecsFilter.GetEntity(index);
+        }
+
+        public static void AddComponentByTag<T1, T2>(this EcsWorld world, in T2 message = default) 
+            where T1 : struct
+            where T2 : struct
+        {
+            var ecsFilter = world.GetFilter(typeof(EcsFilter<T1>));
+            
+            foreach (var entityId in ecsFilter)
+                ecsFilter.GetEntity(entityId).Get<T2>() = message;
+        }
+
+        public static void AddComponentByTag<T1, T2>(this EcsWorld world, int index, in T2 message = default)
+            where T1 : struct
+            where T2 : struct
+        {
+            var ecsFilter = world.GetFilter(typeof(EcsFilter<T1>));
+            
+            if (ecsFilter.IsEmpty())
+                Debug.LogWarning($"There's no entities with tag: {typeof(T1).Name}");
+            else if (index < 0 || index >= ecsFilter.GetEntitiesCount())
+                Debug.LogWarning($"There's no entity by index {index} with tag {typeof(T1).Name}");
+            else 
+                ecsFilter.GetEntity(index).Get<T2>() = message;
         }
     }
 }

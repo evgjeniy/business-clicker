@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: BusinessNames
   m_EditorClassIdentifier: 
   <BusinessNames>k__BackingField:
-  - <Name>k__BackingField: Business 0
-    <FirstUpgradeName>k__BackingField: First Upgrade 0
-    <SecondUpgradeName>k__BackingField: Second Upgrade 0
-  - <Name>k__BackingField: Business 1
-    <FirstUpgradeName>k__BackingField: First Upgrade 1
-    <SecondUpgradeName>k__BackingField: Second Upgrade 1
-  - <Name>k__BackingField: Business 2
-    <FirstUpgradeName>k__BackingField: First Upgrade 2
-    <SecondUpgradeName>k__BackingField: Second Upgrade 2
-  - <Name>k__BackingField: Business 3
-    <FirstUpgradeName>k__BackingField: First Upgrade 3
-    <SecondUpgradeName>k__BackingField: Second Upgrade 3
-  - <Name>k__BackingField: Business 4
-    <FirstUpgradeName>k__BackingField: First Upgrade 4
-    <SecondUpgradeName>k__BackingField: Second Upgrade 4
+  - <Name>k__BackingField: Cafe "Puffin Coffee"
+    <FirstUpgradeName>k__BackingField: Create a Loyalty Program
+    <SecondUpgradeName>k__BackingField: Enable the Delivery of Croissants
+  - <Name>k__BackingField: Pet Care Salon "Pet Haven"
+    <FirstUpgradeName>k__BackingField: Add Mobile Grooming Services
+    <SecondUpgradeName>k__BackingField: Implement a Day Care Service for Pets
+  - <Name>k__BackingField: Wellness center "Serenity"
+    <FirstUpgradeName>k__BackingField: Introduce Aromatherapy
+    <SecondUpgradeName>k__BackingField: Add a Spa and Steam Bath
+  - <Name>k__BackingField: Fitness Studio "Thrive"
+    <FirstUpgradeName>k__BackingField: Create Online Coaching Service
+    <SecondUpgradeName>k__BackingField: Add Virtual Reality Training Systems
+  - <Name>k__BackingField: Travel Agency "Wanderlust"
+    <FirstUpgradeName>k__BackingField: Create Personalized Travel Packages
+    <SecondUpgradeName>k__BackingField: Implement a Loyalty Incentive Program

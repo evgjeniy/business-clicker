@@ -1,4 +1,8 @@
 using Ecs.Systems;
+using Ecs.Systems.ButtonEventHandlers;
+using Ecs.Systems.Debug;
+using Ecs.Systems.InitializeSystems;
+using Ecs.Systems.UpdateViewSystems;
 using Leopotam.Ecs;
 using ScriptableObjects;
 using UnityEngine;
@@ -43,7 +47,14 @@ namespace Ecs
 				.Add(new SecondUpgradeHandleSystem())
 
 				.Add(new ButtonsInteractableCheckSystem())
-				.Add(new UpdateViewSystem())
+				
+				.Add(new UpdateLevelNumberTextViewSystem())
+				.Add(new UpdateRevenueTextViewSystem())
+				.Add(new UpdateLevelUpPriceTextViewSystem())
+				.Add(new UpdateFirstUpgradePriceViewSystem())
+				.Add(new UpdateFirstUpgradeRevenueViewSystem())
+				.Add(new UpdateSecondUpgradePriceViewSystem())
+				.Add(new UpdateSecondUpgradeRevenueViewSystem())
 
 				.Add(new DebugMessageSystem());
 		}

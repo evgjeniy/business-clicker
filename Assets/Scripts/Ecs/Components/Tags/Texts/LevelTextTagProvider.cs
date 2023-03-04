@@ -2,7 +2,7 @@
 
 namespace Ecs.Components.Tags.Texts
 {
-    public class LevelTextTagProvider : MonoProvider<LevelTextTag> {}
+    public class LevelTextTagProvider : MonoProvider<LevelNumberTextTag> {}
 
-    public struct LevelTextTag {}
+    public struct LevelNumberTextTag {}
 }

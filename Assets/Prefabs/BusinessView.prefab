@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7608246384851062014}
   - component: {fileID: 2728663188378809914}
   - component: {fileID: 4767750165092656842}
+  - component: {fileID: 373205597195239455}
   m_Layer: 5
   m_Name: Upgrade Button 1 Revenue
   m_TagString: Untagged
@@ -137,6 +138,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &373205597195239455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17843413793221722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1211710678445548766
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +165,7 @@ GameObject:
   - component: {fileID: 6237987178738274299}
   - component: {fileID: 7153866291374573127}
   - component: {fileID: 8918068211350890375}
+  - component: {fileID: 2085763343948019532}
   m_Layer: 5
   m_Name: Upgrade Button 2 Revenue
   m_TagString: Untagged
@@ -274,6 +288,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &2085763343948019532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211710678445548766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1261608874287785432
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +789,7 @@ GameObject:
   - component: {fileID: 8523372865747647883}
   - component: {fileID: 4997695580440666045}
   - component: {fileID: 3322213109453167908}
+  - component: {fileID: 1715892653930889424}
   m_Layer: 5
   m_Name: Level Up Text
   m_TagString: Untagged
@@ -887,6 +914,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &1715892653930889424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2952860342416728451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3922444191096689981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1083,7 @@ GameObject:
   - component: {fileID: 2984644541850863397}
   - component: {fileID: 5503238944434592100}
   - component: {fileID: 8199866828768811059}
+  - component: {fileID: 7839971914118127781}
   m_Layer: 5
   m_Name: Level Text
   m_TagString: Untagged
@@ -1181,6 +1221,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &7839971914118127781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339385198815462771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5414343217437062582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,6 +1469,7 @@ GameObject:
   - component: {fileID: 8826570482869930161}
   - component: {fileID: 573705483572726334}
   - component: {fileID: 4812266621915718897}
+  - component: {fileID: 6931359074025059057}
   m_Layer: 5
   m_Name: Upgrade Button 2 Price
   m_TagString: Untagged
@@ -1539,6 +1592,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &6931359074025059057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613438779235667213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6564468785624053184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2210,7 @@ GameObject:
   - component: {fileID: 1927066066593416347}
   - component: {fileID: 4369278265414177757}
   - component: {fileID: 441125133706064023}
+  - component: {fileID: 7781097933000132494}
   m_Layer: 5
   m_Name: Revenue Text
   m_TagString: Untagged
@@ -2282,6 +2348,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &7781097933000132494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552416932172181534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8685205732999971933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,6 +2375,7 @@ GameObject:
   - component: {fileID: 6660591038889568335}
   - component: {fileID: 384109444174324642}
   - component: {fileID: 7327511946440386824}
+  - component: {fileID: 9106256814773757192}
   m_Layer: 5
   m_Name: Upgrade Button 1 Price
   m_TagString: Untagged
@@ -2419,6 +2498,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     rootTransform: {fileID: 9176947893438378683}
+--- !u!114 &9106256814773757192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685205732999971933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8960749706089909345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,8 +2791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 50
-    m_Right: 50
+    m_Left: 30
+    m_Right: 30
     m_Top: 15
     m_Bottom: 15
   m_ChildAlignment: 4
