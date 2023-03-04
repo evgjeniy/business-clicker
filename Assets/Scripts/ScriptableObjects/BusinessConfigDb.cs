@@ -11,6 +11,19 @@ namespace ScriptableObjects
         public BusinessConfig GetById(int id) => id < 0 || id >= BusinessConfigs.Count ? null : BusinessConfigs[id];
 
         public int Size => BusinessConfigs.Count;
+
+        [ContextMenu("Reset Data to Default Values")]
+        private void ResetDataToStartValues()
+        {
+            foreach (var businessConfig in BusinessConfigs)
+            {
+                businessConfig.Level = 0;
+                businessConfig.FirstUpgrade.IsPurchased = false;
+                businessConfig.SecondUpgrade.IsPurchased = false;
+            }
+            
+            if (BusinessConfigs.Count > 0) BusinessConfigs[0].Level = 1;
+        }
     }
     
     
