@@ -1,13 +1,15 @@
-﻿using Ecs.Components;
-using Ecs.Components.Events;
+﻿using Ecs.Components.Events;
+using Ecs.Components.Tags.Texts;
 using Ecs.Components.UiComponents;
 using Leopotam.Ecs;
+using ScriptableObjects;
 
 namespace Ecs.Systems.UpdateViewSystems
 {
     public class UpdateBalanceViewSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<TextComponent, UpdateViewEvent, BalanceComponent> _viewFilter = null;
+        private readonly SaveDataConfig _saveDataConfig = null;
+        private readonly EcsFilter<TextComponent, UpdateViewEvent, BalanceViewTag> _viewFilter = null;
 
         public void Run()
         {
@@ -16,7 +18,7 @@ namespace Ecs.Systems.UpdateViewSystems
                 ref var entity = ref _viewFilter.GetEntity(entityId);
                 ref var uiText = ref entity.Get<TextComponent>().uiText;
                 
-                uiText.text = $"Balance: {entity.Get<BalanceComponent>().MoneyAmount}$";
+                uiText.text = $"Balance: {_saveDataConfig.MoneyAmount}$";
                 
                 entity.Del<UpdateViewEvent>();
             }

@@ -6,7 +6,7 @@ namespace ScriptableObjects
     [CreateAssetMenu(menuName = "Configuration DB", fileName = "Config")]
     public class BusinessConfigDb : ScriptableObject
     {
-        [field: SerializeField] public List<BusinessConfig> BusinessConfigs { get; private set; }
+        [field: SerializeField] public List<BusinessConfig> BusinessConfigs { get; set; }
 
         public BusinessConfig GetById(int id) => id < 0 || id >= BusinessConfigs.Count ? null : BusinessConfigs[id];
 
@@ -17,41 +17,39 @@ namespace ScriptableObjects
         {
             foreach (var businessConfig in BusinessConfigs)
             {
-                businessConfig.Level = 0;
-                businessConfig.CurrentProcess = 0.0f;
-                businessConfig.FirstUpgrade.IsPurchased = false;
-                businessConfig.SecondUpgrade.IsPurchased = false;
+                businessConfig.level = 0;
+                businessConfig.currentProcess = 0.0f;
+                businessConfig.firstUpgrade.isPurchased = false;
+                businessConfig.secondUpgrade.isPurchased = false;
             }
             
-            if (BusinessConfigs.Count > 0) BusinessConfigs[0].Level = 1;
+            if (BusinessConfigs.Count > 0) BusinessConfigs[0].level = 1;
         }
     }
-    
     
     [System.Serializable]
     public class BusinessConfig
     {
-        [field: Header("Save Data")]
-        [field: SerializeField] public int Level { get; set; }
-        [field: SerializeField] public float CurrentProcess { get; set; }
+        [Min(0)] public int level;
+        [Min(0.0f)] public float currentProcess;
         
-        [field: Header("Business Balance Settings")]
-        [field: SerializeField, Min(0.0f)] public float RevenueDelay { get; private set; }
-        [field: SerializeField, Min(0.0f)] public float BasePrice { get; private set; }
-        [field: SerializeField, Min(0.0f)] public float BaseRevenue { get; private set; }
+        [Header("Business Balance Settings")]
+        [Min(0.0f)] public float revenueDelay;
+        [Min(0.0f)] public float basePrice;
+        [Min(0.0f)] public float baseRevenue;
         
-        [field: Header("Upgrades")]
-        [field: SerializeField] public UpgradeConfig FirstUpgrade { get; private set; }
-        [field: SerializeField] public UpgradeConfig SecondUpgrade { get; private set; }
+        [Header("Upgrades")]
+        public UpgradeConfig firstUpgrade; 
+        public UpgradeConfig secondUpgrade;
 
-        public float NextLevelPrice => (Level + 1) * BasePrice;
+        public float NextLevelPrice => (level + 1) * basePrice;
 
         public float GetCurrentRevenue()
         {
-            var firstMultiplier = FirstUpgrade.IsPurchased ? FirstUpgrade.RevenueMultiplier : 0;
-            var secondMultiplier = SecondUpgrade.IsPurchased ? SecondUpgrade.RevenueMultiplier : 0;
+            var firstMultiplier = firstUpgrade.isPurchased ? firstUpgrade.revenueMultiplier : 0;
+            var secondMultiplier = secondUpgrade.isPurchased ? secondUpgrade.revenueMultiplier : 0;
 
-            return Level * BaseRevenue * (1 + firstMultiplier + secondMultiplier);
+            return level * baseRevenue * (1 + firstMultiplier + secondMultiplier);
         }
     }
 
@@ -59,12 +57,10 @@ namespace ScriptableObjects
     [System.Serializable]
     public class UpgradeConfig
     {
-        [field: Header("Save Data")]
-        [field: SerializeField] public bool IsPurchased { get; set; }
+        [SerializeField] public bool isPurchased;
         
-        
-        [field: Header("Upgrade Balance Settings")]
-        [field: SerializeField, Min(0.0f)] public float Price { get; private set; }
-        [field: SerializeField, Min(0.0f)] public float RevenueMultiplier { get; private set; }
+        [Header("Upgrade Balance Settings")]
+        [Min(0.0f)] public float price;
+        [Min(0.0f)] public float revenueMultiplier;
     }
 }

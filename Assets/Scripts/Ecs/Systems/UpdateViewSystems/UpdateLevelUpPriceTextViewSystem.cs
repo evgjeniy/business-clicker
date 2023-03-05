@@ -17,6 +17,6 @@ namespace Ecs.Systems.UpdateViewSystems
         protected override EcsFilter ViewFilter => _viewFilter;
 
         protected override string GetUpdatedText(BusinessConfig businessIndex) =>
-            (businessIndex.Level == 0 ? "BUY" : "LEVEL UP") + $"\nPrice: {businessIndex.NextLevelPrice}$";
+            (businessIndex.level == 0 ? "BUY" : "LEVEL UP") + $"\nPrice: {businessIndex.NextLevelPrice}$";
     }
 }

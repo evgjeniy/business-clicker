@@ -16,6 +16,6 @@ namespace Ecs.Systems.UpdateViewSystems
         
         protected override EcsFilter ViewFilter => _viewFilter;
 
-        protected override string GetUpdatedText(BusinessConfig businessIndex) => $"LVL: {businessIndex.Level}";
+        protected override string GetUpdatedText(BusinessConfig businessIndex) => $"LVL: {businessIndex.level}";
     }
 }

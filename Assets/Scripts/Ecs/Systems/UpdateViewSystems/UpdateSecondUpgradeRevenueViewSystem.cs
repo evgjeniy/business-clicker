@@ -17,6 +17,6 @@ namespace Ecs.Systems.UpdateViewSystems
         protected override EcsFilter ViewFilter => _viewFilter;
 
         protected override string GetUpdatedText(BusinessConfig businessIndex) =>
-            $"Revenue: +{businessIndex.SecondUpgrade.RevenueMultiplier * 100}%";
+            $"Revenue: +{businessIndex.secondUpgrade.revenueMultiplier * 100}%";
     }
 }

@@ -1,11 +1,8 @@
-using System;
-using Ecs.Components.Events;
 using Ecs.Systems;
 using Ecs.Systems.ButtonEventHandlers;
 using Ecs.Systems.DebugMessaging;
 using Ecs.Systems.InitializeSystems;
 using Ecs.Systems.UpdateViewSystems;
-using Ecs.Utilities;
 using Leopotam.Ecs;
 using ScriptableObjects;
 using UnityEngine;
@@ -16,14 +13,15 @@ namespace Ecs
 	public sealed class EcsStartup : MonoBehaviour
 	{
 		[Header("Databases")]
-		[SerializeField] private BusinessNamesDb _businessNames;
-		[SerializeField] private BusinessConfigDb _businessBusinessConfigs;
+		[SerializeField] private SaveDataConfig _saveDataConfig;
 		
 		private EcsWorld _world;
 		private EcsSystems _systems;
 	
 		private void Start()
 		{
+			_saveDataConfig.TryLoad();
+			
 			_world = new EcsWorld();
 			_systems = new EcsSystems(_world).ConvertScene();
 			
@@ -36,7 +34,6 @@ namespace Ecs
 		private void AddSystems()
 		{
 			_systems
-				.Add(new LoadSystem())
 				.Add(new ChangeFpsLimitSystem())
 				.Add(new BusinessViewsSpawnSystem())
 
@@ -61,20 +58,20 @@ namespace Ecs
 				.Add(new UpdateSecondUpgradePriceViewSystem())
 				.Add(new UpdateSecondUpgradeRevenueViewSystem())
 				
-				.Add(new SaveSystem())
 				.Add(new DebugMessageSystem());
 		}
 
 		private void AddInjections()
 		{
 			_systems
-				.Inject(_businessNames)
-				.Inject(_businessBusinessConfigs);
+				.Inject(_saveDataConfig)
+				.Inject(_saveDataConfig.BusinessNamesDb)
+				.Inject(_saveDataConfig.BusinessConfigDb);
 		}
 
 		private void Update() => _systems?.Run();
-		
-		private void SaveData() => _world.GetComponent<SaveEvent>().OnSaveComplete?.Invoke();
+
+		private void SaveData() => _saveDataConfig.Save();
 		
 		private void OnApplicationQuit() => SaveData();
 		

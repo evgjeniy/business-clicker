@@ -17,6 +17,6 @@ namespace Ecs.Systems.UpdateViewSystems
         protected override EcsFilter ViewFilter => _viewFilter;
 
         protected override string GetUpdatedText(BusinessConfig config) =>
-            config.FirstUpgrade.IsPurchased ? "Purchased" : $"Price: {config.FirstUpgrade.Price}$";
+            config.firstUpgrade.isPurchased ? "Purchased" : $"Price: {config.firstUpgrade.price}$";
     }
 }

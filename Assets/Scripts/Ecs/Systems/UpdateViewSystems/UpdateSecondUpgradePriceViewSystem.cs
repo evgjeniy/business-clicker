@@ -17,6 +17,6 @@ namespace Ecs.Systems.UpdateViewSystems
         protected override EcsFilter ViewFilter => _viewFilter;
 
         protected override string GetUpdatedText(BusinessConfig businessIndex) =>
-            businessIndex.SecondUpgrade.IsPurchased ? "Purchased" : $"Price: {businessIndex.SecondUpgrade.Price}$";
+            businessIndex.secondUpgrade.isPurchased ? "Purchased" : $"Price: {businessIndex.secondUpgrade.price}$";
     }
 }

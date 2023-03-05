@@ -13,68 +13,68 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   <BusinessConfigs>k__BackingField:
-  - <Level>k__BackingField: 1
-    <CurrentProcess>k__BackingField: 0
-    <RevenueDelay>k__BackingField: 3
-    <BasePrice>k__BackingField: 3
-    <BaseRevenue>k__BackingField: 3
-    <FirstUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 50
-      <RevenueMultiplier>k__BackingField: 0.5
-    <SecondUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 400
-      <RevenueMultiplier>k__BackingField: 1
-  - <Level>k__BackingField: 0
-    <CurrentProcess>k__BackingField: 0
-    <RevenueDelay>k__BackingField: 6
-    <BasePrice>k__BackingField: 40
-    <BaseRevenue>k__BackingField: 40
-    <FirstUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 1200
-      <RevenueMultiplier>k__BackingField: 1
-    <SecondUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 4000
-      <RevenueMultiplier>k__BackingField: 2
-  - <Level>k__BackingField: 0
-    <CurrentProcess>k__BackingField: 0
-    <RevenueDelay>k__BackingField: 10
-    <BasePrice>k__BackingField: 200
-    <BaseRevenue>k__BackingField: 200
-    <FirstUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 6000
-      <RevenueMultiplier>k__BackingField: 1
-    <SecondUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 20000
-      <RevenueMultiplier>k__BackingField: 1.5
-  - <Level>k__BackingField: 0
-    <CurrentProcess>k__BackingField: 0
-    <RevenueDelay>k__BackingField: 17
-    <BasePrice>k__BackingField: 1000
-    <BaseRevenue>k__BackingField: 1000
-    <FirstUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 15000
-      <RevenueMultiplier>k__BackingField: 1
-    <SecondUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 50000
-      <RevenueMultiplier>k__BackingField: 2
-  - <Level>k__BackingField: 0
-    <CurrentProcess>k__BackingField: 0
-    <RevenueDelay>k__BackingField: 30
-    <BasePrice>k__BackingField: 5000
-    <BaseRevenue>k__BackingField: 5000
-    <FirstUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 100000
-      <RevenueMultiplier>k__BackingField: 2
-    <SecondUpgrade>k__BackingField:
-      <IsPurchased>k__BackingField: 0
-      <Price>k__BackingField: 500000
-      <RevenueMultiplier>k__BackingField: 4
+  - level: 4
+    currentProcess: 1.3093475
+    revenueDelay: 3
+    basePrice: 3
+    baseRevenue: 3
+    firstUpgrade:
+      isPurchased: 0
+      price: 50
+      revenueMultiplier: 0.5
+    secondUpgrade:
+      isPurchased: 0
+      price: 400
+      revenueMultiplier: 1
+  - level: 1
+    currentProcess: 0.6693684
+    revenueDelay: 6
+    basePrice: 40
+    baseRevenue: 40
+    firstUpgrade:
+      isPurchased: 0
+      price: 1200
+      revenueMultiplier: 1
+    secondUpgrade:
+      isPurchased: 0
+      price: 4000
+      revenueMultiplier: 2
+  - level: 0
+    currentProcess: 0
+    revenueDelay: 10
+    basePrice: 200
+    baseRevenue: 200
+    firstUpgrade:
+      isPurchased: 0
+      price: 6000
+      revenueMultiplier: 1
+    secondUpgrade:
+      isPurchased: 0
+      price: 20000
+      revenueMultiplier: 1.5
+  - level: 0
+    currentProcess: 0
+    revenueDelay: 17
+    basePrice: 1000
+    baseRevenue: 1000
+    firstUpgrade:
+      isPurchased: 0
+      price: 15000
+      revenueMultiplier: 1
+    secondUpgrade:
+      isPurchased: 0
+      price: 50000
+      revenueMultiplier: 2
+  - level: 0
+    currentProcess: 0
+    revenueDelay: 30
+    basePrice: 5000
+    baseRevenue: 5000
+    firstUpgrade:
+      isPurchased: 0
+      price: 100000
+      revenueMultiplier: 2
+    secondUpgrade:
+      isPurchased: 0
+      price: 500000
+      revenueMultiplier: 4

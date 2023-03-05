@@ -24,8 +24,8 @@ namespace Ecs.Systems.ButtonEventHandlers
                 var businessIndex = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
                 var businessConfig = _configDb.GetById(businessIndex);
 
-                _world.SendMessage(new ReplenishBalanceRequest { value = -businessConfig.SecondUpgrade.Price });
-                businessConfig.SecondUpgrade.IsPurchased = true;
+                _world.SendMessage(new ReplenishBalanceRequest { value = -businessConfig.secondUpgrade.price });
+                businessConfig.secondUpgrade.isPurchased = true;
 
                 _world.AddComponentByTag<SecondUpgradePriceTag, UpdateViewEvent>(businessIndex);
                 _world.AddComponentByTag<RevenueTextTag, UpdateViewEvent>(businessIndex);

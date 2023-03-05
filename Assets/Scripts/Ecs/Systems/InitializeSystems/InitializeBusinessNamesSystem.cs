@@ -22,9 +22,9 @@ namespace Ecs.Systems.InitializeSystems
                 var index = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
                 var businessName = _namesDb.GetById(index);
 
-                if (entity.Has<BusinessNameTag>())           uiText.text = businessName.Name;
-                else if (entity.Has<FirstUpgradeNameTag>())  uiText.text = businessName.FirstUpgradeName;
-                else if (entity.Has<SecondUpgradeNameTag>()) uiText.text = businessName.SecondUpgradeName;
+                if (entity.Has<BusinessNameTag>())           uiText.text = businessName.name;
+                else if (entity.Has<FirstUpgradeNameTag>())  uiText.text = businessName.firstUpgradeName;
+                else if (entity.Has<SecondUpgradeNameTag>()) uiText.text = businessName.secondUpgradeName;
                 else continue;
                 
                 entity.Del<InitializeEvent>();

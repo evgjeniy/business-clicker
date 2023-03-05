@@ -25,7 +25,7 @@ namespace Ecs.Systems.ButtonEventHandlers
                 var businessConfig = _configDb.GetById(businessIndex);
 
                 _world.SendMessage(new ReplenishBalanceRequest { value = -businessConfig.NextLevelPrice });
-                businessConfig.Level += 1;
+                businessConfig.level += 1;
 
                 _world.AddComponentByTag<LevelUpPriceTextTag, UpdateViewEvent>(businessIndex);
                 _world.AddComponentByTag<RevenueTextTag, UpdateViewEvent>(businessIndex);

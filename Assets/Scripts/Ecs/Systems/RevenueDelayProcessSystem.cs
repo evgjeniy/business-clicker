@@ -27,13 +27,13 @@ namespace Ecs.Systems
                 var businessConfig = _configDb.GetById(businessIndex);
                 
                 if (entity.Has<InitializeEvent>()) 
-                    Initialize(ref entity, uiSlider, businessConfig.RevenueDelay);
+                    Initialize(ref entity, uiSlider, businessConfig.revenueDelay);
                 
-                if (businessConfig.Level == 0) continue;
+                if (businessConfig.level == 0) continue;
 
                 IncreaseDeltaTime(businessConfig);
 
-                uiSlider.value = businessConfig.CurrentProcess;
+                uiSlider.value = businessConfig.currentProcess;
             }
         }
 
@@ -45,10 +45,10 @@ namespace Ecs.Systems
 
         private void IncreaseDeltaTime(BusinessConfig businessConfig)
         {
-            businessConfig.CurrentProcess += Time.deltaTime;
-            if (businessConfig.CurrentProcess < businessConfig.RevenueDelay) return;
+            businessConfig.currentProcess += Time.deltaTime;
+            if (businessConfig.currentProcess < businessConfig.revenueDelay) return;
 
-            businessConfig.CurrentProcess = 0;
+            businessConfig.currentProcess = 0;
             _world.SendMessage(new ReplenishBalanceRequest { value = businessConfig.GetCurrentRevenue() });
         }
     }

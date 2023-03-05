@@ -1,6 +1,7 @@
 ﻿using Ecs.Components;
 using Ecs.Components.Events;
 using Ecs.Components.Tags.Buttons;
+using Ecs.Components.Tags.Texts;
 using Ecs.Components.UiComponents;
 using Leopotam.Ecs;
 using ScriptableObjects;
@@ -10,43 +11,43 @@ namespace Ecs.Systems
     public class ButtonsInteractableCheckSystem : IEcsRunSystem
     {
         private readonly BusinessConfigDb _configDb = null;
-        private readonly EcsFilter<BalanceComponent, UpdateViewEvent> _changedBalanceFilter = null;
+        private readonly SaveDataConfig _saveDataConfig = null;
+        
+        private readonly EcsFilter<BalanceViewTag, UpdateViewEvent> _changedBalanceFilter = null;
         private readonly EcsFilter<ButtonComponent, RootTransformComponent> _buttonsFilter = null;
 
         public void Run()
         {
             if (_changedBalanceFilter.IsEmpty()) return;
-
-            var moneyAmount = _changedBalanceFilter.Get1(0).MoneyAmount;
             
             foreach (var entityId in _buttonsFilter)
             {
                 ref var entity = ref _buttonsFilter.GetEntity(entityId);
                 
                 var businessIndex = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
-                var businessConfig = _configDb.GetById(businessIndex);
-
-                SetInteractable(ref entity, businessConfig, moneyAmount);
+                SetInteractable(ref entity, _configDb.GetById(businessIndex));
             }
         }
 
-        private void SetInteractable(ref EcsEntity entity, BusinessConfig businessConfig, float moneyAmount)
+        private void SetInteractable(ref EcsEntity entity, BusinessConfig businessConfig)
         {
+            var moneyAmount = _saveDataConfig.MoneyAmount;
+            
             if (entity.Has<LevelUpButtonTag>())
             {
-                var nextLevelPrice = (businessConfig.Level + 1) * businessConfig.BasePrice;
+                var nextLevelPrice = (businessConfig.level + 1) * businessConfig.basePrice;
                 entity.Get<ButtonComponent>().uiButton.interactable = moneyAmount >= nextLevelPrice;
             }
             else if (entity.Has<FirstUpgradeButtonTag>())
             {
-                var firstUpgradePrice = businessConfig.FirstUpgrade.Price;
-                var isPurchased = businessConfig.FirstUpgrade.IsPurchased;
+                var firstUpgradePrice = businessConfig.firstUpgrade.price;
+                var isPurchased = businessConfig.firstUpgrade.isPurchased;
                 entity.Get<ButtonComponent>().uiButton.interactable = !isPurchased && moneyAmount >= firstUpgradePrice;
             }
             else if (entity.Has<SecondUpgradeButtonTag>())
             {
-                var secondUpgradePrice = businessConfig.SecondUpgrade.Price;
-                var isPurchased = businessConfig.SecondUpgrade.IsPurchased;
+                var secondUpgradePrice = businessConfig.secondUpgrade.price;
+                var isPurchased = businessConfig.secondUpgrade.isPurchased;
                 entity.Get<ButtonComponent>().uiButton.interactable = !isPurchased && moneyAmount >= secondUpgradePrice;
             }
         }
