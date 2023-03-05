@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   <BusinessConfigs>k__BackingField:
-  - level: 4
-    currentProcess: 1.3093475
+  - level: 1
+    currentProcess: 0
     revenueDelay: 3
     basePrice: 3
     baseRevenue: 3
@@ -26,8 +26,8 @@ MonoBehaviour:
       isPurchased: 0
       price: 400
       revenueMultiplier: 1
-  - level: 1
-    currentProcess: 0.6693684
+  - level: 0
+    currentProcess: 0
     revenueDelay: 6
     basePrice: 40
     baseRevenue: 40

@@ -18,8 +18,6 @@ namespace ScriptableObjects
             
             var json = PlayerPrefs.GetString(SaveDataKey);
             var saveData = JsonUtility.FromJson<SaveData>(json);
-            
-            Debug.Log(JsonUtility.ToJson(saveData));
 
             MoneyAmount = saveData.moneyAmount;
             BusinessNamesDb.BusinessNames = saveData.businessNames.ToList();
@@ -36,7 +34,6 @@ namespace ScriptableObjects
             });
             
             PlayerPrefs.SetString(SaveDataKey, jsonSaveData);
-            Debug.Log(jsonSaveData);
         }
     }
 
