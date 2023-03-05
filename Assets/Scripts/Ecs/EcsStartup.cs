@@ -1,5 +1,3 @@
-using System;
-using Ecs.Components;
 using Ecs.Components.Events;
 using Ecs.Systems;
 using Ecs.Systems.ButtonEventHandlers;

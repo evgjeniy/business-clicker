@@ -1,7 +1,6 @@
 ﻿using Ecs.Components;
 using Ecs.Components.Events;
 using Ecs.Components.Requests;
-using Ecs.Components.UiComponents;
 using Ecs.Utilities;
 using Leopotam.Ecs;
 
@@ -27,15 +26,7 @@ namespace Ecs.Systems
                 isChanged = true;
             }
 
-            if (isChanged) UpdateBalanceText(ref balanceEntity);
-        }
-        
-        private void UpdateBalanceText(ref EcsEntity balanceEntity)
-        {
-            balanceEntity.Get<TextComponent>().uiText.text = 
-                $"Balance: {balanceEntity.Get<BalanceComponent>().MoneyAmount}$";
-            
-            balanceEntity.SendMessage(new UpdateViewEvent());
+            if (isChanged) balanceEntity.SendMessage(new UpdateViewEvent());
         }
     }
 }

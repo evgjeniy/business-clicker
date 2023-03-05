@@ -17,7 +17,7 @@ namespace Ecs.Systems
         {
             if (_changedBalanceFilter.IsEmpty()) return;
 
-            var moneyAmount = _changedBalanceFilter.GetEntity(0).Get<BalanceComponent>().MoneyAmount;
+            var moneyAmount = _changedBalanceFilter.Get1(0).MoneyAmount;
             
             foreach (var entityId in _buttonsFilter)
             {

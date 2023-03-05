@@ -30,7 +30,6 @@ namespace Ecs.Systems
         private void SaveData()
         {
             var jsonConfigDb = JsonUtility.ToJson(_configDb);
-            Debug.Log(jsonConfigDb);
             PlayerPrefs.SetString(ConfigDbSaveKey, jsonConfigDb);
             PlayerPrefs.SetFloat(BalanceMoneyAmountSaveKey, _world.GetComponent<BalanceComponent>().MoneyAmount);
         }
