@@ -1,4 +1,6 @@
-# Advant. Тестовое задание на позицию Unity Developer.
+# Advant Studio. Тестовое задание на позицию Unity Developer.
+
+## [Ссылка на скачивание .apk файла](https://drive.google.com/drive/folders/1BRtuTP9UutcaDhqhyeYAOjrtxSkmFOXz?usp=share_link)
 
 ## Превью
 ![Preview_1](https://user-images.githubusercontent.com/90873710/222871804-b00c7720-5db4-40cd-b88f-fb0bf6b4ec35.gif)
