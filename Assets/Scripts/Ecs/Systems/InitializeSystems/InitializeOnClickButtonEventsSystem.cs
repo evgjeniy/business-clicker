@@ -2,7 +2,7 @@
 using Ecs.Components.Events;
 using Ecs.Components.Tags.Buttons;
 using Ecs.Components.UiComponents;
-using Ecs.Extensions;
+using Ecs.Utilities;
 using Leopotam.Ecs;
 
 namespace Ecs.Systems.InitializeSystems

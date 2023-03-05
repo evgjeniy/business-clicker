@@ -1,8 +1,12 @@
+using System;
+using Ecs.Components;
+using Ecs.Components.Events;
 using Ecs.Systems;
 using Ecs.Systems.ButtonEventHandlers;
-using Ecs.Systems.Debug;
+using Ecs.Systems.DebugMessaging;
 using Ecs.Systems.InitializeSystems;
 using Ecs.Systems.UpdateViewSystems;
+using Ecs.Utilities;
 using Leopotam.Ecs;
 using ScriptableObjects;
 using UnityEngine;
@@ -33,9 +37,10 @@ namespace Ecs
 		private void AddSystems()
 		{
 			_systems
+				.Add(new LoadSystem())
 				.Add(new ChangeFpsLimitSystem())
 				.Add(new BusinessViewsSpawnSystem())
-				
+
 				.Add(new InitializeBusinessNamesSystem())
 				.Add(new InitializeOnClickButtonEventsSystem())
 				
@@ -48,6 +53,7 @@ namespace Ecs
 
 				.Add(new ButtonsInteractableCheckSystem())
 				
+				.Add(new UpdateBalanceViewSystem())
 				.Add(new UpdateLevelNumberTextViewSystem())
 				.Add(new UpdateRevenueTextViewSystem())
 				.Add(new UpdateLevelUpPriceTextViewSystem())
@@ -55,7 +61,8 @@ namespace Ecs
 				.Add(new UpdateFirstUpgradeRevenueViewSystem())
 				.Add(new UpdateSecondUpgradePriceViewSystem())
 				.Add(new UpdateSecondUpgradeRevenueViewSystem())
-
+				
+				.Add(new SaveSystem())
 				.Add(new DebugMessageSystem());
 		}
 
@@ -68,8 +75,10 @@ namespace Ecs
 
 		private void Update() => _systems?.Run();
 
-		private void OnDestroy()
+		private void OnApplicationQuit()
 		{
+			_world.GetComponent<SaveEvent>().OnSaveComplete?.Invoke();
+			
 			_systems?.Destroy();
 			_systems = null;
 			_world?.Destroy();

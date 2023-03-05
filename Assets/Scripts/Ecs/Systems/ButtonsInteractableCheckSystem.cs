@@ -10,7 +10,7 @@ namespace Ecs.Systems
     public class ButtonsInteractableCheckSystem : IEcsRunSystem
     {
         private readonly BusinessConfigDb _configDb = null;
-        private readonly EcsFilter<BalanceComponent, BalanceChangedEvent> _changedBalanceFilter = null;
+        private readonly EcsFilter<BalanceComponent, UpdateViewEvent> _changedBalanceFilter = null;
         private readonly EcsFilter<ButtonComponent, RootTransformComponent> _buttonsFilter = null;
 
         public void Run()

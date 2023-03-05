@@ -3,7 +3,7 @@ using Ecs.Components.Events;
 using Ecs.Components.Requests;
 using Ecs.Components.Tags.Buttons;
 using Ecs.Components.Tags.Texts;
-using Ecs.Extensions;
+using Ecs.Utilities;
 using Leopotam.Ecs;
 using ScriptableObjects;
 

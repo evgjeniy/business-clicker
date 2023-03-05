@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BusinessConfigs>k__BackingField:
   - <Level>k__BackingField: 1
+    <CurrentProcess>k__BackingField: 0
     <RevenueDelay>k__BackingField: 3
     <BasePrice>k__BackingField: 3
     <BaseRevenue>k__BackingField: 3
@@ -26,6 +27,7 @@ MonoBehaviour:
       <Price>k__BackingField: 400
       <RevenueMultiplier>k__BackingField: 1
   - <Level>k__BackingField: 0
+    <CurrentProcess>k__BackingField: 0
     <RevenueDelay>k__BackingField: 6
     <BasePrice>k__BackingField: 40
     <BaseRevenue>k__BackingField: 40
@@ -38,6 +40,7 @@ MonoBehaviour:
       <Price>k__BackingField: 4000
       <RevenueMultiplier>k__BackingField: 2
   - <Level>k__BackingField: 0
+    <CurrentProcess>k__BackingField: 0
     <RevenueDelay>k__BackingField: 10
     <BasePrice>k__BackingField: 200
     <BaseRevenue>k__BackingField: 200
@@ -50,6 +53,7 @@ MonoBehaviour:
       <Price>k__BackingField: 20000
       <RevenueMultiplier>k__BackingField: 1.5
   - <Level>k__BackingField: 0
+    <CurrentProcess>k__BackingField: 0
     <RevenueDelay>k__BackingField: 17
     <BasePrice>k__BackingField: 1000
     <BaseRevenue>k__BackingField: 1000
@@ -62,6 +66,7 @@ MonoBehaviour:
       <Price>k__BackingField: 50000
       <RevenueMultiplier>k__BackingField: 2
   - <Level>k__BackingField: 0
+    <CurrentProcess>k__BackingField: 0
     <RevenueDelay>k__BackingField: 30
     <BasePrice>k__BackingField: 5000
     <BaseRevenue>k__BackingField: 5000

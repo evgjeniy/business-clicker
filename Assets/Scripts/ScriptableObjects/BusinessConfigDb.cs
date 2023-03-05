@@ -18,6 +18,7 @@ namespace ScriptableObjects
             foreach (var businessConfig in BusinessConfigs)
             {
                 businessConfig.Level = 0;
+                businessConfig.CurrentProcess = 0.0f;
                 businessConfig.FirstUpgrade.IsPurchased = false;
                 businessConfig.SecondUpgrade.IsPurchased = false;
             }
@@ -30,7 +31,9 @@ namespace ScriptableObjects
     [System.Serializable]
     public class BusinessConfig
     {
+        [field: Header("Save Data")]
         [field: SerializeField] public int Level { get; set; }
+        [field: SerializeField] public float CurrentProcess { get; set; }
         
         [field: Header("Business Balance Settings")]
         [field: SerializeField, Min(0.0f)] public float RevenueDelay { get; private set; }
@@ -56,7 +59,9 @@ namespace ScriptableObjects
     [System.Serializable]
     public class UpgradeConfig
     {
+        [field: Header("Save Data")]
         [field: SerializeField] public bool IsPurchased { get; set; }
+        
         
         [field: Header("Upgrade Balance Settings")]
         [field: SerializeField, Min(0.0f)] public float Price { get; private set; }

@@ -2707,8 +2707,6 @@ GameObject:
   - component: {fileID: 9176947893438378684}
   - component: {fileID: 2666591654543383230}
   - component: {fileID: 2567844231364846412}
-  - component: {fileID: 6641653563086599049}
-  - component: {fileID: 9015333951207005953}
   m_Layer: 5
   m_Name: BusinessView
   m_TagString: Untagged
@@ -2818,28 +2816,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &6641653563086599049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9176947893438378682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 863c7f7460b2b49abb4fa9a7ff9cb180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  convertMode: 0
---- !u!114 &9015333951207005953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9176947893438378682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260291d60cc44f17968a442593d6664c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

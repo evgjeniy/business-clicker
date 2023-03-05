@@ -1,9 +1,9 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Ecs.Extensions
+namespace Ecs.Utilities
 {
-    public static class WorldExtensions
+    public static class Extensions
     {
         public static void SendMessage<T>(this EcsWorld world, in T message = default) where T : struct
         {
@@ -13,6 +13,11 @@ namespace Ecs.Extensions
         public static void SendMessage<T>(this ref EcsEntity entity, in T message = default) where T : struct
         {
             entity.Get<T>() = message;
+        }
+
+        public static ref T GetComponent<T>(this EcsWorld world, in int index = 0) where T : struct
+        {
+            return ref world.GetEntity<T>(index).Get<T>();
         }
 
         public static ref EcsEntity GetEntity<T>(this EcsWorld world, in int index = 0) where T : struct
@@ -30,7 +35,13 @@ namespace Ecs.Extensions
             where T2 : struct
         {
             var ecsFilter = world.GetFilter(typeof(EcsFilter<T1>));
-            
+
+            if (ecsFilter.IsEmpty())
+            {
+                Debug.LogWarning($"There's no entities with tag: {typeof(T1).Name}");
+                return;
+            }
+
             foreach (var entityId in ecsFilter)
                 ecsFilter.GetEntity(entityId).Get<T2>() = message;
         }

@@ -2,7 +2,7 @@
 using Ecs.Components.Events;
 using Ecs.Components.Requests;
 using Ecs.Components.UiComponents;
-using Ecs.Extensions;
+using Ecs.Utilities;
 using Leopotam.Ecs;
 using ScriptableObjects;
 using UnityEngine;
@@ -26,26 +26,30 @@ namespace Ecs.Systems
                 var businessIndex = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
                 var businessConfig = _configDb.GetById(businessIndex);
                 
-                if (entity.Has<InitializeEvent>()) Initialize(ref entity, uiSlider, businessConfig);
+                if (entity.Has<InitializeEvent>()) 
+                    Initialize(ref entity, uiSlider, businessConfig.RevenueDelay);
+                
                 if (businessConfig.Level == 0) continue;
 
-                IncreaseDeltaTime(uiSlider, businessConfig.GetCurrentRevenue());
+                IncreaseDeltaTime(businessConfig);
+
+                uiSlider.value = businessConfig.CurrentProcess;
             }
         }
 
-        private void Initialize(ref EcsEntity entity, Slider uiSlider, BusinessConfig businessConfig)
+        private void Initialize(ref EcsEntity entity, Slider uiSlider, float revenueDelay)
         {
-            uiSlider.maxValue = businessConfig.RevenueDelay;
+            uiSlider.maxValue = revenueDelay;
             entity.Del<InitializeEvent>();
         }
 
-        private void IncreaseDeltaTime(Slider uiSlider, float currentRevenue)
+        private void IncreaseDeltaTime(BusinessConfig businessConfig)
         {
-            uiSlider.value += Time.deltaTime;
-            if (uiSlider.value < uiSlider.maxValue) return;
+            businessConfig.CurrentProcess += Time.deltaTime;
+            if (businessConfig.CurrentProcess < businessConfig.RevenueDelay) return;
 
-            uiSlider.value = uiSlider.minValue;
-            _world.SendMessage(new ReplenishBalanceRequest { value = currentRevenue });
+            businessConfig.CurrentProcess = 0;
+            _world.SendMessage(new ReplenishBalanceRequest { value = businessConfig.GetCurrentRevenue() });
         }
     }
 }

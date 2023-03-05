@@ -1,8 +1,9 @@
 ﻿using System;
 using Ecs.Components.Requests;
 using Leopotam.Ecs;
+using UnityEngine;
 
-namespace Ecs.Systems.Debug
+namespace Ecs.Systems.DebugMessaging
 {
     public class DebugMessageSystem : IEcsRunSystem
     {
@@ -16,9 +17,9 @@ namespace Ecs.Systems.Debug
 
                 switch (messageEvent.type)
                 {
-                    case MessageType.Log:     UnityEngine.Debug.Log(messageEvent.message);        break;
-                    case MessageType.Warning: UnityEngine.Debug.LogWarning(messageEvent.message); break;
-                    case MessageType.Error:   UnityEngine.Debug.LogError(messageEvent.message);   break;
+                    case MessageType.Log:     Debug.Log(messageEvent.message);        break;
+                    case MessageType.Warning: Debug.LogWarning(messageEvent.message); break;
+                    case MessageType.Error:   Debug.LogError(messageEvent.message);   break;
                     default: throw new ArgumentOutOfRangeException();
                 }
                 

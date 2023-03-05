@@ -1,6 +1,6 @@
 ﻿using Ecs.Components;
 using Ecs.Components.Requests;
-using Ecs.Extensions;
+using Ecs.Utilities;
 using Leopotam.Ecs;
 using ScriptableObjects;
 using UnityEngine;

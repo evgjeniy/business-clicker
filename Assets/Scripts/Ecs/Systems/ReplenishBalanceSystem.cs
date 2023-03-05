@@ -2,7 +2,7 @@
 using Ecs.Components.Events;
 using Ecs.Components.Requests;
 using Ecs.Components.UiComponents;
-using Ecs.Extensions;
+using Ecs.Utilities;
 using Leopotam.Ecs;
 
 namespace Ecs.Systems
@@ -35,7 +35,7 @@ namespace Ecs.Systems
             balanceEntity.Get<TextComponent>().uiText.text = 
                 $"Balance: {balanceEntity.Get<BalanceComponent>().MoneyAmount}$";
             
-            balanceEntity.SendMessage(new BalanceChangedEvent());
+            balanceEntity.SendMessage(new UpdateViewEvent());
         }
     }
 }

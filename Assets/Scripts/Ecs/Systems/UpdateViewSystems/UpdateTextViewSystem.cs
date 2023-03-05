@@ -8,13 +8,11 @@ namespace Ecs.Systems.UpdateViewSystems
 {
     public abstract class UpdateTextViewSystem : IEcsRunSystem
     {
-        public void Run()
+        public virtual void Run()
         {
-            var ecsFilter = ViewFilter;
-            
-            foreach (var entityId in ecsFilter)
+            foreach (var entityId in ViewFilter)
             {
-                ref var entity = ref ecsFilter.GetEntity(entityId);
+                ref var entity = ref ViewFilter.GetEntity(entityId);
                 ref var uiText = ref entity.Get<TextComponent>().uiText;
 
                 var businessIndex = entity.Get<RootTransformComponent>().rootTransform.GetSiblingIndex();
