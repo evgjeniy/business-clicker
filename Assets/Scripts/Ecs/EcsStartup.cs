@@ -1,3 +1,4 @@
+using System;
 using Ecs.Components.Events;
 using Ecs.Systems;
 using Ecs.Systems.ButtonEventHandlers;
@@ -72,11 +73,23 @@ namespace Ecs
 		}
 
 		private void Update() => _systems?.Run();
-
-		private void OnApplicationQuit()
+		
+		private void SaveData() => _world.GetComponent<SaveEvent>().OnSaveComplete?.Invoke();
+		
+		private void OnApplicationQuit() => SaveData();
+		
+		private void OnApplicationPause(bool pauseStatus)
 		{
-			_world.GetComponent<SaveEvent>().OnSaveComplete?.Invoke();
-			
+			if (pauseStatus) SaveData();
+		}
+
+		private void OnApplicationFocus(bool hasFocus)
+		{
+			if (!hasFocus) SaveData();
+		}
+
+		private void OnDestroy()
+		{
 			_systems?.Destroy();
 			_systems = null;
 			_world?.Destroy();
