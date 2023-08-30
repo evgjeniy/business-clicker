@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e937945a1fb14b99a141d4209c197998, type: 3}
+  m_Name: SaveDataConfig
+  m_EditorClassIdentifier: 
+  <MoneyAmount>k__BackingField: 0
+  <BusinessNamesDb>k__BackingField: {fileID: 11400000, guid: b9b58cdd97ef4144ba487c465aacc6f3, type: 2}
+  <BusinessConfigDb>k__BackingField: {fileID: 11400000, guid: 4d73120726d0ef0448f25f34bb8adebf, type: 2}
